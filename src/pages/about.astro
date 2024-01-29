@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -23,29 +23,17 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
-
-    <h1>{pageTitle}</h1>
-    <h2>... And My New Astro Site!</h2>
-    <p>
-      Currently working through Astro's introductory tutorial. This is the
-      second page on my website and the first one I built myself!
-    </p>
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
-    <p>Here are a few facts about the person who wrote this tutorial:</p>
-  </body>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... And My New Astro Site!</h2>
+  <p>
+    Currently working through Astro's introductory tutorial. This is the second
+    page on my website and the first one I built myself!
+  </p>
+  <p>
+    This site will update as I complete more of the tutorial, so keep checking
+    back and see how my journey is going!
+  </p>
+  <p>Here are a few facts about the person who wrote this tutorial:</p>
   <ul>
     <li>Her name is {identity.firstName}.</li>
     <li>
@@ -75,7 +63,7 @@ const textCase = "uppercase";
       <p>My goal is not 3 days.</p>
     )
   }
-</html>
+</BaseLayout>
 
 <style define:vars={{ skillColor, fontWeight, textCase }}>
   h1 {
