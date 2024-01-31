@@ -1,22 +1,17 @@
 backend:
   name: git-gateway
-  repo: paul-mcaviney/Astro_Blog
-  branch: main
-  squash_merges: true
-  open_authoring: true
+  branch: main # Branch to update (optional; defaults to master)
 
-publish_mode: editorial_workflow
-media_folder: public/images
-public_folder: /images
-site_url: "https://paulies-astro-blog.netlify.app/" # your site name
+  # These lines should *not* be indented
+media_folder: "public" # Media files will be stored in the repo under static/images/uploads
+public_folder: "./" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
-  - name: post
-    label: Posts
-    folder: src/pages/posts
-    create: true
-    format: frontmatter
-    preview_path: post/{{slug}}
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
       - { name: title, label: Title }
       - { name: description, label: Description }
