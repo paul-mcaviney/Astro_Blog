@@ -8,14 +8,17 @@ const pageTitle = "Paulie's Astro Blog";
 // Testing if redeploying will change anything
 ---
 
+<head>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  ></script></head
+>
 <BaseLayout pageTitle={pageTitle}>
   <h2>My Awesome blog subtitle</h2>
   <Greeting
     client:load
     messages={["Hi", "Yo", "Howdy", "Wazzup", "Oh Shit!"]}
   />
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-  ></script>
+
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
