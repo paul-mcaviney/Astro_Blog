@@ -28,9 +28,13 @@ const pageTitle = "Paulie's Astro Blog";
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user: any) => {
         if (!user) {
+          console.log("test");
           window.netlifyIdentity.on("login", () => {
+            console.log("redirect");
             document.location.href = "/admin/";
           });
+        } else {
+          console.log("user found");
         }
       });
     }
