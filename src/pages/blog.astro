@@ -23,20 +23,22 @@ const data = await wpquery({
   }
   `,
 });
+
+console.log(data);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>This is where I will post about my journey learning Astro</p>
   <ul>
-    <!-- {
+    {
       allPosts.map((post) => (
         <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
-    } -->
-    {
+    }
+    <!-- {
       data.posts.nodes.map((post) => (
         <BlogPost url={post.slug} title={post.title} />
       ))
-    }
+    } -->
   </ul>
 </BaseLayout>
