@@ -4,7 +4,7 @@ interface gqlParams {
 }
 
 export async function wpquery({ query, variables = {} }: gqlParams) {
-  const response = await fetch("https://gogogame.dev/graphql.", {
+  const response = await fetch("https://gogogame.dev/graphql", {
     method: "post",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({

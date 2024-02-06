@@ -9,36 +9,38 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
 const pageTitle = "Blog";
 
 // GraphQL Query for blog posts
-// const data = await wpquery({
-//   query: `
-//   {
-//     posts {
-//       nodes {
-//         slug
-//         excerpt
-//         title
-//         date
-//       }
-//     }
-//   }
-//   `,
-// });
+const data = await wpquery({
+  query: `
+  {
+    posts {
+      nodes {
+        slug
+        excerpt
+        title
+        date
+      }
+    }
+  }
+  `,
+});
 
-// console.log(data);
+console.log(data);
+
+// let response = await fetch("")
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>This is where I will post about my journey learning Astro</p>
   <ul>
-    {
+    <!-- {
       allPosts.map((post) => (
         <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
-    }
-    <!-- {
-      data.posts.nodes.map((post) => (
+    } -->
+    {
+      data.posts.nodes.map((post: any) => (
         <BlogPost url={post.slug} title={post.title} />
       ))
-    } -->
+    }
   </ul>
 </BaseLayout>
