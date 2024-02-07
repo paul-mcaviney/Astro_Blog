@@ -1,10 +1,5 @@
-interface gqlParams {
-  query: string;
-  variables?: object;
-}
-
-export async function wpquery({ query, variables = {} }: gqlParams) {
-  const response = await fetch("https://gogogame.dev/graphql", {
+export async function query(query, variables) {
+  const response = await fetch("https://blog.pauliewrites.com/graphql", {
     method: "post",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({

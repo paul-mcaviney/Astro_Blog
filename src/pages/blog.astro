@@ -3,13 +3,13 @@ import "../styles/global.css";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-import { wpquery } from "../graphql/wordpressQuery";
+import { query } from "../graphql/wpquery";
 
 const allPosts = await Astro.glob("../pages/posts/*.md");
 const pageTitle = "Blog";
 
 // GraphQL Query for blog posts
-const data = await wpquery({
+const data = await query({
   query: `
   {
     posts {
@@ -24,7 +24,7 @@ const data = await wpquery({
   `,
 });
 
-console.log(data);
+console.log(data.posts.nodes[0]);
 
 // let response = await fetch("")
 ---
